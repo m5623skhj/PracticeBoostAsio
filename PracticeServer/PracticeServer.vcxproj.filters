@@ -13,10 +13,36 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="소스 파일\AsioServer">
+      <UniqueIdentifier>{a1682d63-c8f3-4a4b-b6b4-1c63e670e09f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\include">
+      <UniqueIdentifier>{ca1b4634-837b-4e71-bd63-6263174e37ff}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\PracticeClient\SampleServer.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="AsioServer.cpp">
+      <Filter>소스 파일\AsioServer</Filter>
+    </ClCompile>
+    <ClCompile Include="AsioSession.cpp">
+      <Filter>소스 파일\AsioServer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Desktop\Common\Parse.cpp">
+      <Filter>소스 파일\include</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AsioServer.h">
+      <Filter>소스 파일\AsioServer</Filter>
+    </ClInclude>
+    <ClInclude Include="AsioSession.h">
+      <Filter>소스 파일\AsioServer</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
