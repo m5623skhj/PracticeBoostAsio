@@ -21,7 +21,6 @@ private:
 private:
 	boost::asio::ip::tcp::acceptor acceptor;
 	boost::asio::ip::tcp::endpoint endPoint;
-	boost::asio::ip::tcp::socket acceptSocket;
 #pragma endregion Asio
 
 #pragma region Accept

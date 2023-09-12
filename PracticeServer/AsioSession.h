@@ -5,7 +5,7 @@ class AsioSession
 {
 public:
 	AsioSession() = delete;
-	AsioSession(boost::asio::io_context& ioContext);
+	AsioSession(const boost::asio::any_io_executor& ioContext);
 	virtual ~AsioSession();
 
 #pragma region Asio

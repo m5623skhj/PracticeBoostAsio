@@ -1,7 +1,7 @@
 #include "AsioSession.h"
 #include <boost/bind.hpp>
 
-AsioSession::AsioSession(boost::asio::io_context& ioContext)
+AsioSession::AsioSession(const boost::asio::any_io_executor& ioContext)
 	: socket(ioContext)
 {
 }
