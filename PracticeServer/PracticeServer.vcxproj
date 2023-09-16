@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\Desktop\Common\Parse.cpp" />
+    <ClCompile Include="..\..\..\..\Desktop\Common\Ringbuffer.cpp" />
     <ClCompile Include="..\PracticeClient\SampleServer.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
@@ -84,7 +85,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\boost_1_83_0;$(IncludePath)</IncludePath>
+    <IncludePath>C:\Users\User\Desktop\Common;C:\boost_1_83_0;$(IncludePath)</IncludePath>
     <ReferencePath>C:\boost_1_83_0;$(ReferencePath)</ReferencePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">

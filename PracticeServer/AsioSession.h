@@ -1,5 +1,6 @@
 #pragma once
 #include <boost/asio.hpp>
+#include "Ringbuffer.h"
 
 class AsioSession
 {
@@ -16,7 +17,14 @@ private:
 public:
 	boost::asio::ip::tcp::socket& GetSocket();
 
+public:
+	void StartReceive();
+	void StartSend();
+
 private:
 	void OnReceive(const boost::system::error_code& errorCode, size_t transferred);
 	void OnSend(const boost::system::error_code& errorCode, size_t transferred);
+
+private:
+	CRingbuffer receiveBuffer;
 };

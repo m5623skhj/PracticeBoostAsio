@@ -33,5 +33,5 @@ void AsioServer::Accept()
 
 void AsioServer::OnAccept(std::shared_ptr<AsioSession> session)
 {
-    UNREFERENCED_PARAMETER(session);
+    session->StartReceive();
 }

@@ -19,6 +19,9 @@
     <Filter Include="소스 파일\include">
       <UniqueIdentifier>{ca1b4634-837b-4e71-bd63-6263174e37ff}</UniqueIdentifier>
     </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{35e2e463-078a-4d20-a726-55c3d1ca26af}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\PracticeClient\SampleServer.cpp">
@@ -35,6 +38,9 @@
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Desktop\Common\Ringbuffer.cpp">
+      <Filter>include</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
