@@ -6,6 +6,13 @@
 AsioSession::AsioSession(const boost::asio::any_io_executor& ioContext)
 	: socket(ioContext)
 {
+	receiveBuffer.InitPointer();
+}
+
+AsioSession::AsioSession(boost::asio::io_service& io)
+	: socket(io)
+{
+	receiveBuffer.InitPointer();
 }
 
 AsioSession::~AsioSession()
@@ -34,6 +41,7 @@ void AsioSession::OnReceive(const boost::system::error_code& errorCode, size_t t
 		if (errorCode != boost::asio::error::eof)
 		{
 			std::cout << "OnReceive() : " << errorCode.message() << std::endl;
+
 		}
 
 		return;
