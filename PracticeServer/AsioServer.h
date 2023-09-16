@@ -15,7 +15,7 @@ public:
 	virtual ~AsioServer();
 
 private:
-	std::map<unsigned long long, std::shared_ptr<AsioSession>> sessionList;
+	std::map<UINT64, std::shared_ptr<AsioSession>> sessionList;
 
 #pragma region Asio
 private:
