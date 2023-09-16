@@ -2,6 +2,7 @@
 #include <boost/bind.hpp>
 #include <boost/asio.hpp>
 #include <iostream>
+#include "SerializationBuffer.h"
 
 AsioSession::AsioSession(const boost::asio::any_io_executor& ioContext)
 	: socket(ioContext)
@@ -30,8 +31,19 @@ void AsioSession::Receive()
 		, boost::bind(&AsioSession::OnReceive, this, boost::asio::placeholders::error, boost::asio::placeholders::bytes_transferred));
 }
 
-void AsioSession::Send()
+void AsioSession::Send(std::shared_ptr<CSerializationBuffer> packet)
 {
+	if (packet == nullptr)
+	{
+		return;
+	}
+
+	auto packetFront = packet->GetBufferPtr();
+	WORD packetSize = packet->GetUseSize();
+	memset(packetFront, packetSize, HEADER_SIZE);
+
+	socket.async_write_some(boost::asio::buffer(packetFront, packetSize + HEADER_SIZE)
+		, boost::bind(&AsioSession::OnSend, this, boost::asio::placeholders::error, boost::asio::placeholders::bytes_transferred, packet));
 }
 
 void AsioSession::OnReceive(const boost::system::error_code& errorCode, size_t transferred)
@@ -40,20 +52,30 @@ void AsioSession::OnReceive(const boost::system::error_code& errorCode, size_t t
 	{
 		if (errorCode != boost::asio::error::eof)
 		{
-			std::cout << "OnReceive() : " << errorCode.message() << std::endl;
+			std::cout << "Error in OnReceive() : " << errorCode.message() << std::endl;
 
 		}
 
 		return;
 	}
 
-	// Callback OnMessage();
+	// Callback OnReceiveMessage();
 
 	Receive();
 }
 
-void AsioSession::OnSend(const boost::system::error_code& errorCode, size_t transferred)
+void AsioSession::OnSend(const boost::system::error_code& errorCode, size_t transferred, std::shared_ptr<CSerializationBuffer> packet)
 {
-	UNREFERENCED_PARAMETER(errorCode);
-	UNREFERENCED_PARAMETER(transferred);
+	if (errorCode)
+	{
+		if (errorCode != boost::asio::error::eof)
+		{
+			std::cout << "Error in OnReceive() : " << errorCode.message() << std::endl;
+
+		}
+
+		return;
+	}
+	
+	// Callback OnSendMessage();
 }

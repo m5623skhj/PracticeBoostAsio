@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="..\..\..\..\Desktop\Common\Parse.cpp" />
     <ClCompile Include="..\..\..\..\Desktop\Common\Ringbuffer.cpp" />
+    <ClCompile Include="..\..\..\..\Desktop\Common\SerializationBuffer.cpp" />
     <ClCompile Include="..\PracticeClient\SampleServer.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>

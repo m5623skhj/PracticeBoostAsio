@@ -16,9 +16,6 @@
     <Filter Include="소스 파일\AsioServer">
       <UniqueIdentifier>{a1682d63-c8f3-4a4b-b6b4-1c63e670e09f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="소스 파일\include">
-      <UniqueIdentifier>{ca1b4634-837b-4e71-bd63-6263174e37ff}</UniqueIdentifier>
-    </Filter>
     <Filter Include="include">
       <UniqueIdentifier>{35e2e463-078a-4d20-a726-55c3d1ca26af}</UniqueIdentifier>
     </Filter>
@@ -33,13 +30,16 @@
     <ClCompile Include="AsioSession.cpp">
       <Filter>소스 파일\AsioServer</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Desktop\Common\Parse.cpp">
-      <Filter>소스 파일\include</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\Desktop\Common\Ringbuffer.cpp">
+      <Filter>include</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Desktop\Common\Parse.cpp">
+      <Filter>include</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Desktop\Common\SerializationBuffer.cpp">
       <Filter>include</Filter>
     </ClCompile>
   </ItemGroup>

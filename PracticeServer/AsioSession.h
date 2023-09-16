@@ -2,6 +2,8 @@
 #include <boost/asio.hpp>
 #include "Ringbuffer.h"
 
+class CSerializationBuffer;
+
 class AsioSession
 {
 public:
@@ -20,11 +22,11 @@ public:
 
 public:
 	void Receive();
-	void Send();
+	void Send(std::shared_ptr<CSerializationBuffer> packet);
 
 private:
 	void OnReceive(const boost::system::error_code& errorCode, size_t transferred);
-	void OnSend(const boost::system::error_code& errorCode, size_t transferred);
+	void OnSend(const boost::system::error_code& errorCode, size_t transferred, std::shared_ptr<CSerializationBuffer> packet);
 
 private:
 	CRingbuffer receiveBuffer;
