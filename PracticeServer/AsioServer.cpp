@@ -63,7 +63,7 @@ void AsioServer::Accept()
 
 void AsioServer::OnAccept(std::shared_ptr<AsioSession> session)
 {
-    session->StartReceive();
+    session->Receive();
 }
 
 int AsioServer::GetCoreCount()
