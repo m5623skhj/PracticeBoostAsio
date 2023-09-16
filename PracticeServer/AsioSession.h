@@ -19,8 +19,8 @@ public:
 	boost::asio::ip::tcp::socket& GetSocket();
 
 public:
-	void StartReceive();
-	void StartSend();
+	void Receive();
+	void Send();
 
 private:
 	void OnReceive(const boost::system::error_code& errorCode, size_t transferred);

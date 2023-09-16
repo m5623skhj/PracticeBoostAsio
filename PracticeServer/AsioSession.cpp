@@ -24,13 +24,13 @@ boost::asio::ip::tcp::socket& AsioSession::GetSocket()
 	return socket;
 }
 
-void AsioSession::StartReceive()
+void AsioSession::Receive()
 {
 	socket.async_read_some(boost::asio::buffer(receiveBuffer.GetBufferPtr(), receiveBuffer.GetNotBrokenPutSize())
 		, boost::bind(&AsioSession::OnReceive, this, boost::asio::placeholders::error, boost::asio::placeholders::bytes_transferred));
 }
 
-void AsioSession::StartSend()
+void AsioSession::Send()
 {
 }
 
@@ -49,7 +49,7 @@ void AsioSession::OnReceive(const boost::system::error_code& errorCode, size_t t
 
 	// Callback OnMessage();
 
-	StartReceive();
+	Receive();
 }
 
 void AsioSession::OnSend(const boost::system::error_code& errorCode, size_t transferred)
