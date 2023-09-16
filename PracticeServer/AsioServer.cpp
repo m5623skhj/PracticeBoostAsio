@@ -94,4 +94,5 @@ void AsioServer::StartWorkerThreads(boost::asio::io_service& io)
     {
         thread->join();
     }
+    workerThreadList.clear();
 }

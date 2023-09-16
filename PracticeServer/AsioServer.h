@@ -29,7 +29,6 @@ private:
 #pragma region Asio
 private:
 	boost::asio::ip::tcp::acceptor acceptor;
-	boost::asio::ip::tcp::endpoint endPoint;
 #pragma endregion Asio
 
 public:
