@@ -1,11 +1,15 @@
 #pragma once
 #include <boost/asio.hpp>
 #include "Ringbuffer.h"
+#include "Player.h"
 
 class CSerializationBuffer;
+class AsioServer;
 
 class AsioSession
 {
+	friend AsioServer;
+
 public:
 	AsioSession() = delete;
 	AsioSession(const boost::asio::any_io_executor& ioContext);
@@ -20,14 +24,17 @@ private:
 public:
 	boost::asio::ip::tcp::socket& GetSocket();
 
-public:
+private:
 	void Receive();
 	void Send(std::shared_ptr<CSerializationBuffer> packet);
-
-private:
 	void OnReceive(const boost::system::error_code& errorCode, size_t transferred);
 	void OnSend(const boost::system::error_code& errorCode, size_t transferred, std::shared_ptr<CSerializationBuffer> packet);
 
 private:
 	CRingbuffer receiveBuffer;
+
+#pragma region PlayerObject
+private:
+	Player playerobject;
+#pragma endregion PlayerObject
 };

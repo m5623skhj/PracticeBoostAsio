@@ -59,7 +59,20 @@ void AsioSession::OnReceive(const boost::system::error_code& errorCode, size_t t
 		return;
 	}
 
-	// Callback OnReceiveMessage();
+	while (true)
+	{
+		WORD packetSize;
+		receiveBuffer.Peek((char*)(&packetSize), sizeof(packetSize));
+		if (packetSize < receiveBuffer.GetUseSize())
+		{
+			break;
+		}
+		
+		CSerializationBuffer& packet = *CSerializationBuffer::Alloc();
+		receiveBuffer.Dequeue(packet.GetBufferPtr(), packetSize);
+
+		playerobject.OnReceivePacket(packet);
+	}
 
 	Receive();
 }
@@ -76,6 +89,6 @@ void AsioSession::OnSend(const boost::system::error_code& errorCode, size_t tran
 
 		return;
 	}
-	
-	// Callback OnSendMessage();
+
+	playerobject.OnSendPacket();
 }

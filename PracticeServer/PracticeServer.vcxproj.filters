@@ -19,6 +19,9 @@
     <Filter Include="include">
       <UniqueIdentifier>{35e2e463-078a-4d20-a726-55c3d1ca26af}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Player">
+      <UniqueIdentifier>{bbdc9216-8fd7-42b3-a5bd-7062157222e1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\PracticeClient\SampleServer.cpp">
@@ -42,6 +45,9 @@
     <ClCompile Include="..\..\..\..\Desktop\Common\SerializationBuffer.cpp">
       <Filter>include</Filter>
     </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>소스 파일\Player</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AsioServer.h">
@@ -49,6 +55,9 @@
     </ClInclude>
     <ClInclude Include="AsioSession.h">
       <Filter>소스 파일\AsioServer</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>소스 파일\Player</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

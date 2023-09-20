@@ -28,10 +28,12 @@
     <ClCompile Include="AsioServer.cpp" />
     <ClCompile Include="AsioSession.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Player.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AsioServer.h" />
     <ClInclude Include="AsioSession.h" />
+    <ClInclude Include="Player.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
