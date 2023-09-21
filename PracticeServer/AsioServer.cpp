@@ -33,6 +33,7 @@ void AsioServer::OnCloseSession(UINT64 sessionId)
 
     if (isAccepting == false)
     {
+        isAccepting = true;
         Accept();
     }
 }
