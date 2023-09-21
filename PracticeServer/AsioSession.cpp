@@ -50,7 +50,6 @@ void AsioSession::OnReceive(const boost::system::error_code& errorCode, size_t t
 		if (errorCode != boost::asio::error::eof)
 		{
 			std::cout << "Error in OnReceive() : " << errorCode.message() << std::endl;
-
 		}
 
 		return;
