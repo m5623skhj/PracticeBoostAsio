@@ -26,9 +26,9 @@ public:
 
 private:
 	void Receive();
-	void Send(std::shared_ptr<CSerializationBuffer> packet);
+	void Send(CSerializationBuffer& packet);
 	void OnReceive(const boost::system::error_code& errorCode, size_t transferred);
-	void OnSend(const boost::system::error_code& errorCode, size_t transferred, std::shared_ptr<CSerializationBuffer> packet);
+	void OnSend(const boost::system::error_code& errorCode, size_t transferred, CSerializationBuffer& packet);
 
 private:
 	CRingbuffer receiveBuffer;

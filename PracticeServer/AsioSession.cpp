@@ -31,15 +31,12 @@ void AsioSession::Receive()
 		, boost::bind(&AsioSession::OnReceive, this, boost::asio::placeholders::error, boost::asio::placeholders::bytes_transferred));
 }
 
-void AsioSession::Send(std::shared_ptr<CSerializationBuffer> packet)
+void AsioSession::Send(CSerializationBuffer& packet)
 {
-	if (packet == nullptr)
-	{
-		return;
-	}
+	CSerializationBuffer::AddRefCount(&packet);
 
-	auto packetFront = packet->GetBufferPtr();
-	WORD packetSize = packet->GetUseSize();
+	auto packetFront = packet.GetBufferPtr();
+	WORD packetSize = packet.GetUseSize();
 	memset(packetFront, packetSize, HEADER_SIZE);
 
 	socket.async_write_some(boost::asio::buffer(packetFront, packetSize + HEADER_SIZE)
@@ -77,7 +74,7 @@ void AsioSession::OnReceive(const boost::system::error_code& errorCode, size_t t
 	Receive();
 }
 
-void AsioSession::OnSend(const boost::system::error_code& errorCode, size_t transferred, std::shared_ptr<CSerializationBuffer> packet)
+void AsioSession::OnSend(const boost::system::error_code& errorCode, size_t transferred, CSerializationBuffer& packet)
 {
 	if (errorCode)
 	{
@@ -91,4 +88,5 @@ void AsioSession::OnSend(const boost::system::error_code& errorCode, size_t tran
 	}
 
 	playerobject.OnSendPacket();
+	CSerializationBuffer::Free(&packet);
 }
