@@ -4,6 +4,8 @@
 
 #define PORT 10001
 
+class CSerializationBuffer;
+
 class AsioClient
 {
 public:
@@ -22,11 +24,14 @@ private:
 	bool isConnected = false;
 #pragma endregion Connect
 
+public:
+	void PacketHandle(CSerializationBuffer& packet);
+
 private:
 	void Receive();
-	void Send();
-	void OnReceive();
-	void OnSend();
+	void Send(CSerializationBuffer& packet);
+	void OnReceive(const boost::system::error_code& errorCode, size_t transferred);
+	void OnSend(const boost::system::error_code& errorCode, size_t transferred, CSerializationBuffer& packet);
 
 private:
 	boost::asio::io_service& io;

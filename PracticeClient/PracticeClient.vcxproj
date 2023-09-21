@@ -141,6 +141,7 @@
     </ClCompile>
     <ClCompile Include="AsioClient.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="PacketHandler.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AsioClient.h" />

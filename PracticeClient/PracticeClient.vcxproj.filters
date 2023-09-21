@@ -39,6 +39,9 @@
     <ClCompile Include="..\..\..\..\Desktop\Common\Ringbuffer.cpp">
       <Filter>소스 파일\include</Filter>
     </ClCompile>
+    <ClCompile Include="PacketHandler.cpp">
+      <Filter>소스 파일\AsioClient</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AsioClient.h">
