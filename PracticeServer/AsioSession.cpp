@@ -33,8 +33,6 @@ void AsioSession::Receive()
 
 void AsioSession::Send(CSerializationBuffer& packet)
 {
-	CSerializationBuffer::AddRefCount(&packet);
-
 	auto packetFront = packet.GetBufferPtr();
 	WORD packetSize = packet.GetUseSize();
 	memset(packetFront, packetSize, HEADER_SIZE);
