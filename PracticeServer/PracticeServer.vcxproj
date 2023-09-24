@@ -29,8 +29,10 @@
     <ClCompile Include="AsioSession.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayerPacketHandler.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Protocol.h" />
     <ClInclude Include="AsioServer.h" />
     <ClInclude Include="AsioSession.h" />
     <ClInclude Include="Player.h" />

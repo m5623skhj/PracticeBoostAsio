@@ -144,6 +144,7 @@
     <ClCompile Include="PacketHandler.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Protocol.h" />
     <ClInclude Include="AsioClient.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -6,12 +6,14 @@
 
 AsioSession::AsioSession(const boost::asio::any_io_executor& ioContext)
 	: socket(ioContext)
+	, playerobject(*this)
 {
 	receiveBuffer.InitPointer();
 }
 
 AsioSession::AsioSession(boost::asio::io_service& io)
 	: socket(io)
+	, playerobject(*this)
 {
 	receiveBuffer.InitPointer();
 }

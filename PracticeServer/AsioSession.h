@@ -24,9 +24,11 @@ private:
 public:
 	boost::asio::ip::tcp::socket& GetSocket();
 
+public:
+	void Send(CSerializationBuffer& packet);
+
 private:
 	void Receive();
-	void Send(CSerializationBuffer& packet);
 	void OnReceive(const boost::system::error_code& errorCode, size_t transferred);
 	void OnSend(const boost::system::error_code& errorCode, size_t transferred, CSerializationBuffer& packet);
 

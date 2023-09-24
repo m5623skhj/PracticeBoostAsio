@@ -16,6 +16,7 @@ public:
 #pragma region Connect
 public:
 	void Connect(boost::asio::ip::tcp::endpoint& endPoint);
+	bool IsConnected() { return isConnected; }
 
 private:
 	void OnConnect(const boost::system::error_code& errorCode);
@@ -27,9 +28,11 @@ private:
 public:
 	void PacketHandle(CSerializationBuffer& packet);
 
+public:
+	void Send(CSerializationBuffer& packet);
+
 private:
 	void Receive();
-	void Send(CSerializationBuffer& packet);
 	void OnReceive(const boost::system::error_code& errorCode, size_t transferred);
 	void OnSend(const boost::system::error_code& errorCode, size_t transferred, CSerializationBuffer& packet);
 
@@ -39,4 +42,9 @@ private:
 
 private:
 	CRingbuffer receiveBuffer;
+
+#pragma region PacketHandle
+private:
+	void C2S_Message(CSerializationBuffer& packet);
+#pragma endregion PacketHandle
 };

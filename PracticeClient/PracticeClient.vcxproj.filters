@@ -47,5 +47,8 @@
     <ClInclude Include="AsioClient.h">
       <Filter>소스 파일\AsioClient</Filter>
     </ClInclude>
+    <ClInclude Include="..\Protocol.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

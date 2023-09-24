@@ -1,6 +1,7 @@
 #include "AsioClient.h"
 #include "SerializationBuffer.h"
 #include <iostream>
+#include "../Protocol.h"
 
 void AsioClient::PacketHandle(CSerializationBuffer& packet)
 {
@@ -15,8 +16,20 @@ void AsioClient::PacketHandle(CSerializationBuffer& packet)
 
 	switch (packetId)
 	{
+	case ProtocolId::S2C_Message:
+		C2S_Message(packet);
+		break;
+
 	default:
 		std::cout << "Invalid packet id : " << packetId << std:: endl;
 		break;
 	}
+}
+
+void AsioClient::C2S_Message(CSerializationBuffer& packet)
+{
+	char message[MAX_MESSAGE_SIZE];
+	packet.ReadBuffer(message, packet.GetUseSize());
+
+	std::cout << message << std::endl;
 }
